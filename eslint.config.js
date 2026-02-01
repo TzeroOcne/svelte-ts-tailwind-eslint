@@ -11,6 +11,9 @@ import tseslint from 'typescript-eslint';
  * @typedef {{ [K in keyof StylisticIssues as `@stylistic/${K}`]: StylisticIssues[K] }} StylisticRules
  * @typedef {import('eslint/rules/possible-errors').PossibleErrors} PossibleErrors
  * @typedef {import('eslint/rules/best-practices').BestPractices} BestPractices
+ * @typedef {import('eslint/rules').ESLintRules} ESLintRules
+ * @typedef {PossibleErrors & BestPractices} JSRules
+ * @typedef {{ [K in keyof ESLintRules as `@typescript-eslint/${K}`]: ESLintRules[K] }} TSRules
  * */
 
 /** @type{StylisticRules} */
@@ -21,11 +24,25 @@ const stylisticRules = {
   '@stylistic/no-multiple-empty-lines': ['error'],
   '@stylistic/indent': ['error', 2],
 };
-/** @type{PossibleErrors & BestPractices} */
+/** @type {JSRules} */
 const jsRules = {
   'no-empty': ['error'],
   'no-empty-function': ['error'],
 };
+
+/** @type {TSRules} */
+const tsRules = {
+  '@typescript-eslint/no-unused-vars': [
+    'error',
+    {
+      argsIgnorePattern: '^_',
+      varsIgnorePattern: '^_',
+      caughtErrorsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+    },
+  ],
+};
+
 /** @type {SvelteRulesOptions} */
 const svelteRules = {
   'svelte/indent': ['error', {
@@ -39,6 +56,7 @@ export default [
     rules: {
       ...pluginJs.configs.recommended.rules,
       ...jsRules,
+      ...tsRules,
     },
   },
   ...tseslint.configs.recommended,
