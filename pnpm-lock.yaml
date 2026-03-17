@@ -11,6 +11,9 @@ importers:
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.0.2(jiti@2.6.1))
+      '@nnry/eslint-config':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@stylistic/eslint-plugin':
         specifier: ^5.9.0
         version: 5.9.0(eslint@10.0.2(jiti@2.6.1))
@@ -300,6 +303,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@nnry/eslint-config@0.0.1':
+    resolution: {integrity: sha512-l2ZUr42y/v7I7TqV++gcISDvTRyS/EhyUS6DGpZ4qJoxSs1ss/NG1YerdYzhg5WpeAfqxbBfpOKzLjk9C/upoA==}
 
   '@rollup/rollup-android-arm-eabi@4.59.0':
     resolution: {integrity: sha512-upnNBkA6ZH2VKGcBj9Fyl9IGNPULcjXRlg0LLeaioQWueH30p6IXtJEbKAgvyv+mJaMxSm1l6xwDXYjpEMiLMg==}
@@ -1382,6 +1388,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@nnry/eslint-config@0.0.1':
+    dependencies:
+      typescript: 5.9.3
 
   '@rollup/rollup-android-arm-eabi@4.59.0':
     optional: true
